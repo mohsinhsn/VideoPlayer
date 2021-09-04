@@ -30,7 +30,7 @@ An Telegram Bot By [@stylishUser](https://t.me/StylishUser) To Stream Videos in 
 
 ## Self Host
 ```sh
-$ git clone https://github.com/AsmSafone/VideoPlayerBot.git
+$ git clone https://github.com/mohsinhsn/VideoPlayerBot.git
 $ cd VideoPlayerBot
 $ sudo apt-get install python3-pip ffmpeg
 $ pip3 install -U pip
