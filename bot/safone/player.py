@@ -32,7 +32,7 @@ ydl_opts = {
 ydl = YoutubeDL(ydl_opts)
 group_call_factory = GroupCallFactory(User, GroupCallFactory.MTPROTO_CLIENT_TYPE.PYROGRAM)
 
-@Client.on_message(filters.command(["stream", f"stream@{USERNAME}"]) & filters.chat(CHAT_ID) | filters.group))
+@Client.on_message(filters.command(["stream", f"stream@{USERNAME}"]) & ~filters.user(ADMINS) (filters.chat(CHAT_ID) | filters.group))
 async def stream(client, m: Message):
     if 1 in STREAM:
         await m.reply_text( Type /endstream to Stop The Existing Stream!")
@@ -122,7 +122,7 @@ async def stream(client, m: Message):
         return
 
 
-@Client.on_message(filters.command(["endstream", f"endstream@{USERNAME}"]) & filters.chat(CHAT_ID) | filters.group))
+@Client.on_message(filters.command(["endstream", f"endstream@{USERNAME}"]) & ~filters.user(ADMINS) & (filters.chat(CHAT_ID) | filters.group))
 async def endstream(client, m: Message):
     if 0 in STREAM:
         await m.reply_text("Please Start The Stream First!")
@@ -145,7 +145,7 @@ async def endstream(client, m: Message):
 
 admincmds=["stream", "endstream", f"stream@{USERNAME}", f"endstream@{USERNAME}"]
 
-@Client.on_message(filters.command(admincmds) & filters.chat(CHAT_ID) | filters.group)
+@Client.on_message(filters.command(admincmds) & ~filters.user(ADMINS) (filters.chat(CHAT_ID) | filters.group)
 async def notforu(_, m: Message):
     k = await m.reply_text("thanks for choosing me")
     await sleep(5)
