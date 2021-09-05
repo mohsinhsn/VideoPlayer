@@ -1,8 +1,7 @@
 {
     "name": "Telegram Video Player ",
     "description": "An Telegram Bot By @monstar_0 To Stream Videos in Voice Chat",
-    "repository": "https://github.com/mohsinhsn/VideoPlayerBot",
-    "logo": "https://telegra.ph/file/9b532dfd6d00e54d1704d.jpg",
+    "repository": "https://github.com/mohsinhsn/VideoPlayer",
     "stack": "container",
     "keywords": [
       "telegram",
@@ -38,17 +37,12 @@
       },
       "CHAT_ID": {
         "description": "ID of your Channel or Group where the bot will works or stream videos",
-        "required": false
+        "required": true
       },
       "AUTH_USERS": {
         "description": "ID of Auth Users who can use Admin commands (for multiple users seperated by space)",
         "required": false
       },
-      "REPLY_MESSAGE": {
-        "description": "A reply message to those who message the USER account in PM. Make it blank if you do not need this feature.",
-        "value": "Hello Sir, I'm a bot to stream videos on telegram voice chat, not having time to chat with you 😂!",
-        "required": false
-      }
     },
     "formation": {
       "worker": {
