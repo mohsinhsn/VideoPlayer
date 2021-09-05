@@ -14,4 +14,9 @@ class Config:
     API_HASH = os.environ.get("API_HASH", "")
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "")
+    REPLY_MESSAGE = os.environ.get("REPLY_MESSAGE", "")
+    if REPLY_MESSAGE:
+        REPLY_MESSAGE = REPLY_MESSAGE
+    else:
+        REPLY_MESSAGE = None
     SESSION_STRING = os.environ.get("SESSION_STRING", "")
