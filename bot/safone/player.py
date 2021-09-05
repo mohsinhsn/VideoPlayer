@@ -14,7 +14,7 @@ from pyrogram.errors import FloodWait
 from pytgcalls import GroupCallFactory
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-CHAT_ID = None
+CHAT_ID = Config.CHAT_ID
 USERNAME = Config.BOT_USERNAME
 
 STREAM = {6}
