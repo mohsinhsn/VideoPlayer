@@ -42,7 +42,7 @@
       },
       "AUTH_USERS": {
         "description": "ID of Auth Users who can use Admin commands (for multiple users seperated by space)",
-        "required": false
+        "required": true
       },
     },
     "formation": {
