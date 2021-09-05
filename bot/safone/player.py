@@ -14,7 +14,7 @@ from pyrogram.errors import FloodWait
 from pytgcalls import GroupCallFactory
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-CHAT_ID = Config.CHAT_ID
+CHAT_ID = none
 USERNAME = Config.BOT_USERNAME
 
 STREAM = {6}
@@ -34,12 +34,12 @@ group_call_factory = GroupCallFactory(User, GroupCallFactory.MTPROTO_CLIENT_TYPE
 @Client.on_message(filters.command(["stream", f"stream@{USERNAME}"]) & filters.group)
 async def stream(client, m: Message):
     if 1 in STREAM:
-        await m.reply_text( Type /endstream to Stop The Existing Stream!**")
+        await m.reply_text( Type /endstream to Stop The Existing Stream!")
         return
 
     media = m.reply_to_message
     if not media and not ' ' in m.text:
-        await m.reply("❗ __Send Me A Live Stream Link / YouTube Video Link / Reply To A Video To Start Streaming!__")
+        await m.reply("Send Me A Live Stream Link / YouTube Video Link / Reply To A Video To Start Streaming!__")
 
     elif ' ' in m.text:
         msg = await m.reply_text("`Processing ...`")
@@ -82,7 +82,7 @@ async def stream(client, m: Message):
                 await group_call.join(CHAT_ID)
                 await group_call.start_video(live)
                 VIDEO_CALL[CHAT_ID] = group_call
-                await msg.edit(f"▶Started [Live Streaming]({live})!**")
+                await msg.edit(f"▶Started [Live Streaming]({live})!")
                 try:
                     STREAM.remove(0)
                 except:
@@ -117,14 +117,14 @@ async def stream(client, m: Message):
             await msg.edit(f"unable to play please recheck and play again \n\nError: `{e}`")
         else: \n\nError: `{e}`")
     else:
-        await m.reply_text("Send Me An Live Stream Link / YouTube Video Link / Reply To An Video To Start Streaming!__")
+        await m.reply_text("Send Me An Live Stream Link / YouTube Video Link / Reply To An Video To Start Streaming!")
         return
 
 
 @Client.on_message(filters.command(["endstream", f"endstream@{USERNAME}"]) & filters.group)
 async def endstream(client, m: Message):
     if 0 in STREAM:
-        await m.reply_text("🤖 **Please Start The Stream First!**")
+        await m.reply_text("Please Start The Stream First!")
         return
     try:
         await VIDEO_CALL[CHAT_ID].stop()
@@ -146,7 +146,7 @@ admincmds=["stream", "endstream", f"stream@{USERNAME}", f"endstream@{USERNAME}"]
 
 @Client.on_message(filters.command(admincmds) & filters.group)
 async def notforu(_, m: Message):
-    k = await m.reply_sticker("CAACAgUAAxkBAAEBpyZhF4R-ZbS5HUrOxI_MSQ10hQt65QACcAMAApOsoVSPUT5eqj5H0h4E")
+    k = await m.reply_text("thanks for choosing me")
     await sleep(5)
     await k.delete()
     try:
